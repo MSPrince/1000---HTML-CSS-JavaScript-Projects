@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- bootstrap  css file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- add favicon link -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_icon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_icon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon_icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        /* Add your custom styles here */
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            /* Change to your preferred background color */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .time {
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .digit {
+            margin: 5px;
+        }
+
+        .txt {
+            font-size: 12px;
+            margin-bottom: -10px;
+            margin-left: -5px;
+            font-weight: 700;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        #btn-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+.btn {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    background-color: antiquewhite;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffd700; /* Change to your preferred hover color */
+}
+
+
+        /* Add more styles as needed */
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="time">
+            <span class="digit" id="hr">00</span>
+            <span class="txt">Hr</span>
+            <span class="digit" id="min">00</span>
+            <span class="txt">Min</span>
+            <span class="digit" id="sec">00</span>
+            <span class="txt">Sec</span>
+            <span class="digit" id="count">00</span>
+        </div>
+
+        <div id="btn-container">
+            <button class="btn" id="start">Start</button>
+            <button class="btn" id="stop">Stop</button>
+            <button class="btn" id="reset">Reset</button>
+        </div>
+    </div>
+
+
+</body>
+    <script>
+        var hour = 0;
+        var minute = 0;
+        var second = 0;
+        var microSecond = 0;
+
+        var timer = null; // Initialize to null
+
+        function start() {
+            timer = setInterval(stopWatch, 10);
+        }
+
+        function stop() {
+            clearInterval(timer);
+            timer = null; // Reset to null when stopped
+        }
+
+        function reset() {
+            clearInterval(timer);
+            hour = minute = second = microSecond = 0;
+            updateDisplay();
+            timer = null; // Ensure the timer is null after resetting
+        }
+
+        function stopWatch() {
+            microSecond++;
+
+            if (microSecond == 100) {
+                microSecond = 0;
+                second++;
+
+                if (second == 60) {
+                    second = 0;
+                    minute++;
+
+                    if (minute == 60) {
+                        minute = 0;
+                        hour++;
+                    }
+                }
+            }
+
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById("hr").innerHTML = pad(hour);
+            document.getElementById("min").innerHTML = pad(minute);
+            document.getElementById("sec").innerHTML = pad(second);
+            document.getElementById("count").innerHTML = pad(microSecond);
+        }
+
+        function pad(value) {
+            return value < 10 ? '0' + value : value;
+        }
+    </script>
+<script src="script.js"></script>
+<!-- bootstrap js  file -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</html>

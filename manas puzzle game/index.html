@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row{
+  display:flex;
+}
+
+.element{
+  height:100px;
+  width:100px;
+  background-size:contain;
+  /* background-repeat:no-repeat; */
+}
+.element-0{
+  background:url("./image/image_part_001.jpg") center / cover no-repeat;
+}
+.element-1{
+  background:url("./image/image_part_002.jpg") center / cover no-repeat;
+}
+.element-2{
+  background:url("./image/image_part_003.jpg") center / cover no-repeat;
+}
+.element-3{
+  background:url("./image/image_part_004.jpg")center / cover no-repeat; 
+}
+.element-4{
+  background:url("./image/image_part_005.jpg") center / cover no-repeat;
+}
+.element-5{
+  background:url("./image/image_part_006.jpg") center / cover no-repeat;
+}
+.element-6{
+  background:url("./image/image_part_007.jpg") center / cover no-repeat;
+}
+.element-7{
+  background:url("./image/image_part_008.jpg") center / cover no-repeat;
+}
+.element-8{
+  background:url("./image/image_part_009.jpg") center / cover no-repeat;
+}
+.element-9{
+  background:url("./image/image_part_010.jpg") center / cover no-repeat;
+}
+.element-10{
+  background:url("./image/image_part_011.jpg") center / cover no-repeat;
+}
+.element-11{
+  background:url("./image/image_part_012.jpg") center / cover no-repeat;
+}
+.element-12{
+  background:url("./image/image_part_013.jpg") center / cover no-repeat;
+}
+.element-13{
+  background:url("./image/image_part_014.jpg") center / cover no-repeat;
+}
+.element-14{
+  background:url("./image/image_part_015.jpg") center / cover no-repeat;
+}
+.element-15{
+  background:url("./image/image_part_016.jpg") center / cover no-repeat;
+}
+    </style>
+</head>
+<body>
+    <div class="main-grid">
+        <div class="row row-1">
+          <div id="0" class="element"></div>
+          <div id="1" class="element"></div>
+          <div id="2" class="element"></div>
+          <div id="3" class="element"></div>
+        </div>
+        <div class="row row-2">
+          <div id="4" class="element"></div>
+          <div id="5" class="element"></div>
+          <div id="6" class="element"></div>
+          <div id="7" class="element"></div>
+          
+        </div>
+        <div class="row row-3">
+            <div id="8" class="element"></div>
+          <div id="9" class="element"></div>
+          <div id="10" class="element"></div>
+          <div id="11" class="element"></div>
+          
+        </div>
+        <div class="row row-4">
+            <div id="12" class="element"></div>
+          <div id="13" class="element"></div>
+          <div id="14" class="element"></div>
+          <div id="15" class="element"></div>
+          
+        </div>
+      </div>
+
+      <script>
+        const allBoxes = document.querySelectorAll(".element");
+const arrMain = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15];
+let updatedArr = [];
+let randomArr = shuffleArray(arrMain);
+let n = 0; let m = 0;
+console.log(randomArr);
+let tempArr = [];
+
+// shuffle all part of images
+function shuffleImages(){
+  for (let i = 0; i < 16; i++) {
+    allBoxes[i].className = '';
+    allBoxes[i].className = 'element element-'+randomArr[i];
+  }
+};
+shuffleImages();
+
+
+
+// On click Event on grid box 
+allBoxes.forEach(function (elem) {
+	elem.addEventListener("click", function () {
+		tempArr.push(elem.id);
+    console.log(tempArr);
+    
+    if(tempArr.length == 2){
+      let temp1 = tempArr[0];
+      let temp2 = tempArr[1];
+      [randomArr[temp1], randomArr[temp2]] = [randomArr[temp2], randomArr[temp1]];
+      console.log(randomArr);
+      tempArr = [];
+      shuffleImages();
+    }
+    
+    
+  });
+});
+  
+
+//function for shuffling the array
+function shuffleArray(array) {
+   for (var i = array.length - 1; i > 0; i--) {
+       // Generate random number
+       var j = Math.floor(Math.random() * (i + 1));
+                   
+       var temp = array[i];
+       array[i] = array[j];
+       array[j] = temp;
+   }
+   return array;
+}
+
+
+
+      </script>
+</body>
+</html>

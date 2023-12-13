@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- bootstrap  css file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- add favicon link -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_icon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_icon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon_icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        /* style.css */
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            transition: background-color 0.5s ease;
+            /* Smooth transition for background color change */
+        }
+
+        h1 {
+            color: #007bff;
+            /* Blue color for the heading */
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            /* Add rounded corners to the image */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Add a subtle box shadow to the image */
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Add some padding and a background color to the body */
+        body {
+            background-color: #f8f9fa;
+            /* Light gray background color */
+        }
+
+        /* Style links */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Color switcher styles */
+        #color-switcher {
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+        }
+
+        #color-switcher span {
+            width: 20px;
+            height: 20px;
+            /* background-color: #007bff; */
+            border-radius: 50%;
+            margin-bottom: 5px;
+            transition: background-color 0.3s ease;
+            display: inline;
+        }
+
+        .btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.2);
+        }
+
+        #aqua {
+            background-color: aqua;
+        }
+
+        #white {
+            background-color: gray;
+        }
+
+        #violet {
+            background-color: violet;
+        }
+
+        #black {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="color-switcher">
+        <span id="aqua" class="btn" onclick="bgChange('aqua')"></span>
+        <span id="white" class="btn" onclick="bgChange('gray')"></span>
+        <span id="violet" class="btn" onclick="bgChange('violet')"></span>
+        <span id="black" class="btn" onclick="bgChange('black')"></span>
+    </div>
+
+    .<h1 class="text">About us</h1>
+    <img src="https://media.istockphoto.com/id/1551192985/photo/female-doctor-holds-pediatric-patient-as-she-listens-to-his-heart.jpg?s=612x612&w=0&k=20&c=44aS0LCP6wf4KqM3UBfQ78uEk9rFmWJjAXY3Qntr2Io="
+        alt="baby Image">
+    .<p class="text">Female doctors play a crucial role in the healthcare industry, contributing their expertise and compassion to
+        patient care. Over the years, the presence of women in medicine has grown, breaking traditional gender barriers.
+        These
+        doctors
+        bring unique perspectives and skills to the field, fostering diversity and enhancing the quality of healthcare.
+    </p>
+
+    .<p class="text">Female doctors often serve as role models, inspiring aspiring medical professionals and challenging stereotypes.
+        Their
+        presence in various specialties, including surgery, internal medicine, and pediatrics, highlights their
+        versatility and
+        dedication to diverse healthcare needs.</p>
+
+    .<p class="text">Beyond clinical expertise, female doctors may also excel in research, education, and advocacy. Their
+        contributions to
+        medical research have led to advancements in understanding and treating various health conditions. Additionally,
+        many
+        female doctors actively engage in community outreach and health education programs, addressing public health
+        issues and
+        promoting wellness.</p>
+
+    .<p class="text">Despite progress, challenges related to gender bias and work-life balance persist in the medical field. Female
+        doctors
+        continue to navigate these hurdles, advocating for equality and paving the way for future generations of women
+        in
+        medicine. The perseverance and accomplishments of female doctors contribute significantly to the evolving
+        landscape of
+        healthcare, fostering a more inclusive and equitable profession.</p>
+
+    <script>
+        // JavaScript for color switcher
+    function bgChange(color) {
+        document.body.style.backgroundColor = color;
+
+        // Change text color to white when background is black
+        let txt = document.getElementsByClassName("text");
+
+        if (color = "black") {
+            for (let elm of txt) {
+                elm.style.color = "white";
+            }
+        } else {
+            // Reset text color for other background colors
+            for (let elm of txt) {
+                elm.style.color = ""; // Reset to default or any other color you prefer
+            }
+        }
+    }
+
+
+
+        //  black color pr text gyab ho ja raha hai
+    </script>
+</body>
+
+<!-- bootstrap js  file -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</html>

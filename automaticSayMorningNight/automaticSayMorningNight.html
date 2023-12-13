@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greeting Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #main {
+      width: 400px;
+      height: 50px;
+      font-size: 46px;
+      padding: 10px;
+      border: 2px solid #3498db;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      outline: none;
+      text-align: center;
+      font-weight: 800;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    #main:focus {
+      border-color: #2ecc71;
+    }
+
+    #main::placeholder {
+      color: #95a5a6;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" id="main" placeholder="Greetings will appear here" readonly>
+
+  <script>
+    let datee = new Date();
+    let hours = datee.getHours();
+    let heading = document.querySelector("#main");
+
+    if (hours >= 5 && hours < 12) {
+      heading.value = "💕Good morning💕";
+    } else if (hours >= 12 && hours < 18) {
+      heading.value = "Good afternoon";
+    } else {
+      heading.value = "❤️Good night ❤️";
+    }
+  </script>
+</body>
+
+</html>

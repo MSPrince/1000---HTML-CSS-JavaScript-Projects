@@ -1,0 +1,87 @@
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .title h2 {
+            font-size: 3em;
+            color: #333;
+        }
+
+        .underline {
+            width: 5%;
+            height: 5px;
+            background-color: #3498db;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .rewiew {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-container {
+            text-align: center;
+        }
+
+        .img-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 20px;
+        }
+
+        h4 {
+            text-align: center;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        p {
+            text-align: center;
+            color: #777;
+        }
+
+        .info {
+            text-align: justify;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .random-btn {
+            background-color: #e44d26;
+        }

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review page</title>
+    <style>
+                body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .title h2 {
+            font-size: 3em;
+            color: #333;
+        }
+
+        .underline {
+            width: 5%;
+            height: 5px;
+            background-color: #3498db;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .rewiew {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-container {
+            text-align: center;
+        }
+
+        .img-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 20px;
+        }
+
+        h4 {
+            text-align: center;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        p {
+            text-align: center;
+            color: #777;
+        }
+
+        .info {
+            text-align: justify;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .random-btn {
+            background-color: #e44d26;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="title">
+            <h2>Our Reviews</h2>
+            <div class="underline"></div>
+        </div>
+
+        <article class="rewiew">
+            <div class="img-container">
+                <img src="https://images.pexels.com/photos/5726691/pexels-photo-5726691.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="" id="person-img">
+            </div>
+            <h4 id="author"> </h4>
+            <p id="job">Web Developer</p>
+            <p class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae distinctio, laboriosam
+                pariatur at non corporis id consequatur, ipsa reiciendis deleniti, delectus perspiciatis accusamus
+                dignissimos quos nesciunt ab sapiente dolores reprehenderit?</p>
+
+            <div class="button-container">
+                <button class="prev-btn">Previous</button>
+                <button class="next-btn">Next</button>
+            </div>
+
+            <div class="button-container">
+            <button class="random-btn">Surprise Me</button>
+            </div>
+        </article>
+    </section>
+
+    <script>
+        const reviews = [
+                {
+                    id: 1,
+                    name: "M.S.Prince",
+                    job: "Software Engineer",
+                    img: "https://images.pexels.com/photos/4173249/pexels-photo-4173249.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                },
+                {
+                    id: 2,
+                    name: "Jane Doe",
+                    job: "Graphic Designer",
+                    img: "https://images.pexels.com/photos/4173249/pexels-photo-4173249.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                },
+                {
+                    id: 3,
+                    name: "John Smith",
+                    job: "Data Scientist",
+                    img: "https://images.pexels.com/photos/4173249/pexels-photo-4173249.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    text: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+                },
+                {
+                    id: 4,
+                    name: "Amanda Johnson",
+                    job: "Marketing Manager",
+                    img: "https://images.pexels.com/photos/4173249/pexels-photo-4173249.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    text: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+                },
+                {
+                    id: 5,
+                    name: "Chris Williams",
+                    job: "UX/UI Designer",
+                    img: "https://images.pexels.com/photos/4173249/pexels-photo-4173249.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    text: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+                },
+                {
+                    id: 6,
+                    name: "Emily Davis",
+                    job: "Content Writer",
+                    img: "https://images.pexels.com/photos/4173249/pexels-photo-4173249.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+                },
+            ];
+
+ // Now you can use the reviews array to dynamically populate your HTML with JavaScript.
+
+    // select item
+    const img = document.getElementById('person-img');
+    const author = document.getElementById('author');
+    const job = document.getElementById('job');
+    const info = document.getElementById('info');
+
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const randomBtn = document.querySelector('.random-btn');
+
+    // set starting item
+    let currentItem = 0;
+
+    // load initial item 
+    window.addEventListener("DOMContentLoaded", function () {
+        displayPerson(currentItem)
+    });
+
+    // show person based on item 
+    function displayPerson(pppp) {
+        const item = reviews[pppp];
+        img.src = item.img; // Set the src attribute for the image
+        author.textContent = item.name;
+        job.textContent = item.job;
+        info.textContent = item.text;
+    }
+
+    // show next person
+    nextBtn.addEventListener('click', function () {
+        currentItem++;
+        if (currentItem > reviews.length - 1) {
+            currentItem = 0; // loop back to the first person if at the end
+        }
+        displayPerson(currentItem);
+    })
+
+    // show previous person
+    prevBtn.addEventListener('click', function () {
+        currentItem--;
+        if (currentItem < 0) {
+            currentItem = reviews.length - 1; // loop back to the last person if at the beginning
+        }
+        displayPerson(currentItem);
+    })
+
+    // show random person
+    randomBtn.addEventListener('click', function () {
+        currentItem = Math.floor(Math.random() * reviews.length);
+        displayPerson(currentItem);
+    })
+    </script>
+</body>
+
+</html>

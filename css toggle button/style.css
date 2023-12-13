@@ -1,0 +1,35 @@
+/* Hide the checkbox */
+input[type="checkbox"] {
+    display: none;
+  }
+  
+  /* Style the label as a toggle button */
+  label {
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    border-radius: 17px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  /* Style the toggle indicator */
+  label::after {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: white;
+    top: 4px;
+    left: 4px;
+    transition: left 0.3s;
+  }
+  
+  /* Update the toggle indicator position when checkbox is checked */
+  input[type="checkbox"]:checked + label::after {
+    left: 30px;
+    background-color: green;
+  }
+  

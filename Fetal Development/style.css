@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    background: #eee;
+    height: auto;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 10px red;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    margin: 0;
+   
+}
+
+img {
+    display: block;
+    width: 80%;
+    border-radius: 20px;
+    transition: 1s;
+    margin: auto;
+}
+
+img:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 10px red;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    box-shadow: 30px 0px 40px rgba(0, 0, 0, 0.1), -30px 0px 40px rgba(0, 0, 0, 0.1)
+}
+
+#landing {
+    background: #fff;
+}
+
+#landing-text {
+    display: flex;
+    flex: 0 1 40vw;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+   
+}
+
+#landing-text h2 {
+    color: #121111;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#landing-image {
+    background: url("background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+    flex: 0 1 60vw;
+    margin: 0;
+}
+
+.btn {
+    padding: 0.5rem 2rem;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin: 2rem 0 0;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #333;
+    transition: background 500ms ease;
+}
+
+.btn:hover {
+    background: #f4f4f4;
+}
+
+#header {
+    padding: 1.5rem;
+    text-align: center;
+    background: #333;
+    color: #fff;
+}
+
+#header h2 {
+    border-left: 1px dotted #fff;
+    border-right: 1px dotted #fff;
+    display: inline-block;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.caption {
+    padding: 0.8rem;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: auto;
+    color: #333;
+}
+
+footer h3 {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+footer p a {
+    text-decoration: none;
+    color: rgb(238, 10, 10);
+}
+
+/*Screen Sizes 500px +*/
+
+@media(min-width: 31.25rem) {
+    #landing {
+        display: flex;
+        height: 100%;
+    }
+
+    #landing-text {
+        height: 100vh;
+    }
+
+    #landing-image {
+        height: 100vh;
+    }
+}
+
+/*Screen Sizes 700px +*/
+
+@media(min-width: 43.75rem) {
+    .btn {
+        padding: 1rem 3rem;
+    }
+}
+
+#images h2{
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#images h2:hover{
+    color: rgb(238, 10, 10);
+}
+
+#images h3{
+    font-size: 1.6rem;
+    font-family: Georgia, 'Times New Roman'
+
+}
+
+#images p{
+    font-size: 1.3rem;
+    font-family: Georgia, 'Times New Roman';
+    color: rgb(12, 179, 235);
+    line-height: 30px;
+    word-spacing: 2.2px;
+}
+
+#images p::first-letter{
+    color: red;
+    font-size: 2.5rem;
+}

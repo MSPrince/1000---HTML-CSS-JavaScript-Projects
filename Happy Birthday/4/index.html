@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+{
+  background-image: linear-gradient(to right top, #1f0537, #380c60, #55108c, #7413bb, #9612eb);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.card {
+	 position: relative;
+	 width: 300px;
+	 height: 425px;
+	 border: 10px solid #9612eb;
+	 margin: 60px auto 0 auto;
+	 box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+
+background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	 background-color: #e6f0e6;
+}
+ .card .text-container {
+	 width: 80%;
+	 height: 80%;
+	 margin: auto;
+}
+ .strikethrough {
+	 text-decoration: line-through;
+}
+ .card .text-container #head {
+	 font-family: 'Nobile', sans-serif;
+	 font-size: 1.5em;
+	 margin: 60px auto 60px auto;
+}
+ .card p {
+	 font-size: 1.1em;
+	 line-height: 1.4;
+	 font-family: 'Nobile';
+	 color: #331717;
+	 font-style: italic;
+	 text-align: center;
+	 margin: 30px auto 0px auto;
+}
+ .card .front {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 margin: -10px 0px 0px -10px;
+	 border: 10px solid #9612eb;
+	 backface-visibility: hidden;
+	 background-color: #9612eb;
+	/* background-image: url($cover-image);
+	 */
+	 background-size: contain;
+	 transform-style: preserve-3d;
+	 transform-origin: 0% 50%;
+	 transform: perspective(800px) rotateY(0deg);
+	 transition: all 0.8s ease-in-out;
+}
+ .card:hover .front {
+	 transform: perspective(800px) rotateY(-170deg);
+	 background-color: #41718d;
+}
+ .card:hover .back {
+	 transform: perspective(800px) rotateY(-170deg);
+	 box-shadow: 7px 0px 5px 0px rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+	 background-color: #d2dcd2;
+}
+ .card .back {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 border: 10px solid #9612eb;
+	 margin: -10px 0px 0px -10px;
+	 backface-visibility: visible;
+	 filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5));
+	 transform-style: preserve-3d;
+	 transform-origin: 0% 50%;
+	 transform: perspective(800px) rotateY(0deg);
+	 transition: all 0.8s ease-in-out;
+	 background-color: #e6f0e6;
+	 box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.imgset
+{
+  position: relative;
+  z-index: 1;
+  margin-bottom: -215px;
+}
+.imgset img
+{
+    box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+}
+<br>
+<br>
+<br>
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+	display: grid;
+	height: 100%;
+	width: 100%;
+	place-items: center;
+	background-image: url("https://i.pinimg.com/originals/36/79/a5/3679a5e35cda35ba467115b41638b626.gif");
+	background-size: cover;
+}
+
+p {
+	color: #86fcef;
+}
+
+h1 {
+	font-size: 60px;
+	color: cyan;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+
+h3 {
+	color: cyan;
+}
+
+button {
+	display: inline-block;
+	position: absolute;
+	cursor: pointer;
+	color: black;
+	font-style: bold;
+	font-family: sans-serif;
+	font-size: 20px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #23252f;
+	text-decoration: none;
+	padding: 20px 45px;
+	border-radius: 9px;
+	background: #64ed85;
+	box-shadow: 3px 3px 6px #296137, -3px -3px 6px #9fffd3;
+	transition: all 0.3s;
+	/* shine effect */
+	background-repeat: no-repeat;
+	background-position: -135px -135px, 0 0;
+	background-image: -webkit-linear-gradient(
+		top left,
+		rgba(255, 255, 255, 0.2) 0%,
+		rgba(255, 255, 255, 0.2) 37%,
+		rgba(255, 255, 255, 0.8) 45%,
+		rgba(255, 255, 255, 0) 50%
+	);
+	background-size: 250% 250%, 100% 100%;
+	transition: background-position 0s ease;
+}
+
+::selection {
+	color: blue;
+	background: #1cc7d0;
+}
+
+.wrapper {
+	height: 400px;
+	width: 320px;
+	position: relative;
+	transform-style: preserve-3d;
+	perspective: 1000px;
+}
+
+.wrapper .card {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding: 5px;
+	background: linear-gradient(385deg, purple, #0004ff);
+	border-radius: 10px;
+	transform: translateY(0deg);
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+	transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.wrapper:hover > .front-face {
+	transform: rotateY(-180deg);
+}
+
+.wrapper .card img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+.wrapper .back-face {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+	transform: rotateY(180deg);
+}
+
+.wrapper:hover > .back-face {
+	transform: rotateY(0deg);
+}
+
+.wrapper .back-face img {
+	height: 150px;
+	width: 150px;
+	padding: 5px;
+	border-radius: 50%;
+	background: linear-gradient(375deg, #001aff, #0084ff);
+	box-shadow: 0 0 5px #d3b3fc, 0 0 25px #f1edf7, 0 0 50px #f2f0f5,
+		0 0 100px #c9b3fc, 0 0 170px #999aad;
+}
+
+.wrapper .back-face .info {
+	text-align: center;
+}
+
+.back-face .info .title {
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.back-face ul {
+	display: flex;
+}
+
+.back-face ul a {
+	display: block;
+	height: 40px;
+	width: 40px;
+	color: #fff;
+	text-align: center;
+	margin: 0 5px;
+	line-height: 38px;
+	border: 2px solid transparent;
+	border-radius: 50%;
+	background: linear-gradient(375deg, #1cc7d0, #2ede98);
+	transition: all 0.5s ease;
+}
+
+.back-face ul a:hover {
+	color: #1cc7d0;
+	border-color: #1cc7d0;
+	background: linear-gradient(375deg, transparent, transparent);
+}
+
+.a {
+	position: fixed;
+	bottom: 500px;
+	right: 340px;
+	width: 100px;
+	height: 80px;
+	border-radius: 100%;
+}
+
+@-webkit-keyframes glow {
+	from {
+		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px blue, 0 0 40px blue,
+			0 0 50px blue, 0 0 60px blueviolet, 0 0 70px blue;
+	}
+
+	to {
+		text-shadow: 0 0 20px #fff, 0 0 30px #4dfcff, 0 0 40px #4dfcff,
+			0 0 50px #4dfcff, 0 0 60px #4dfcff, 0 0 70px #4dfcff, 0 0 80px #4dfcff;
+	}
+}
+
+#wholeThingie {
+	bottom: 500px;
+}
+
+#fontsoide {
+	cursor: pointer;
+}
+
+button:active {
+	border-radius: 25px;
+	border-radius: 9px;
+	background: #64ed85;
+	box-shadow: inset 3px 3px 6px #296137, inset -3px -3px 6px #9fffd3;
+}
+
+button:hover {
+	transform: translate(-50%, -50%) scale(1.03);
+	background-position: 0 0, 0 0;
+	transition-duration: 0.9s;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <body>
+        <div class="card">
+          <div class="back"></div>
+          <div class="front">
+            <div class="imgset">
+                 <img width="100%" src="https://1.bp.blogspot.com/-Mgj9-rbs65E/XfMoPSD5gtI/AAAAAAAAURk/NBokE2gSS2cTSJ2em5lZ5hJDuTtRN7UVwCLcBGAsYHQ/s1600/2713997.png">
+               </div>
+          </div>
+          <div class="text-container">
+            <p id="head">Happy Birthday Manas Anna!</p>
+            <p>I hope your special day will bring you lots of happiness, love, and fun. You deserve them a lot. Enjoy!</p>
+            <p>Hope your day goes great!</p>
+          </div>
+        </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <audio id="Tanav" src="https://jennierubyjanenini.github.io/Music-K-Files/happy%20birthday%20to%20you%20female%20voice%20wishes.mp3">
+        </audio>
+        <h1>Happy Birthday</h1>
+        <h1>Manas</h1>
+        
+        </button><br><br><br><br><br><br><br>
+        <div id="wholeThingie">
+            <div class="wrapper">
+        
+                <div class="card front-face" id="fontsoide">
+        
+                    <img src=" https://i.gifer.com/origin/6a/6a5dc02cd17893a5ac3cb69f99035e78_w200.webp">
+        
+                </div>
+        
+                <div class="card back-face">
+        
+                    <img src="">
+                    <div class="info">
+                        <hr><br>
+                        <p>
+                        <p style="color:black">
+                        <p>Wish U a very Happy and Happiest Birthday Manas<br>May Life Lead you to grade 10 happiness success and Hope That ur all wishes comes true! thank you so much for sharing your knowledge with me Enjoy Ur Day! Once again Happy Bday! :) </p>
+        
+                        </p>
+        
+                    </div>
+        
+                </div><br><br><br><br>
+        
+            </div>
+        
+            <div>
+        
+            </div>
+        </div>
+        
+        <div class="a">
+            <img src="">
+        </div>
+        
+</body>
+</html>

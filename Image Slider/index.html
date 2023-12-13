@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- bootstrap  css file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- add favicon link -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_icon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_icon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon_icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 450px;
+        }
+
+        .arrow {
+            cursor: pointer;
+            position: absolute;
+            top: 45%;
+            color: black;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .caption {
+            color: rgb(222, 74, 74);
+            font-size: 25px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 900;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(170, 160, 100, 0.2);
+            padding: 15px 0;
+        }
+
+        .slide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <div class="slide">
+            <img src="./image/1.jpg" alt="">
+            <div class="caption">Caption text 1</div>
+        </div>
+        <div class="slide">
+            <img src="./image/2.jpeg" alt="">
+            <div class="caption">Caption text 2</div>
+        </div>
+        <div class="slide">
+            <img src="./image/3.jpeg" alt="">
+            <div class="caption">Caption text 3</div>
+        </div>
+        <div class="slide">
+            <img src="./image/4.avif" alt="">
+            <div class="caption">Caption text 4</div>
+        </div>
+
+
+        <span class="arrow prev">&#10094;</span>
+        <span class="arrow next">&#10095;</span>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        let slides; // declare slides at global scope
+
+        function showSlide(index) {
+            slides = document.getElementsByClassName("slide");
+
+            // Hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            // Show the selected slide
+            slides[index].style.display = "block";
+        }
+
+        // Next slide function
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        // Previous slide function
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            showSlide(currentSlide);
+        }
+
+        // Auto slide function
+        function autoSlide() {
+            nextSlide();
+        }
+
+        // Event listeners for arrow navigation
+        document.querySelector(".prev").addEventListener("click", prevSlide);
+        document.querySelector(".next").addEventListener("click", nextSlide);
+
+        // Initial show of the first slide
+        showSlide(currentSlide);
+
+        // Auto slide every 3000 milliseconds (3 seconds)
+        setInterval(autoSlide, 3000);
+    </script>
+    <script src="script.js"></script>
+    <!-- bootstrap js  file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

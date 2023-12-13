@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Favicon links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_icon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_icon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon_icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #form-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+        }
+
+        input {
+          
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: #dc3545;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        /* Add this to your existing style block */
+        input[type="checkbox"] {
+            margin-bottom: 15px;
+            /* Adjust the styles as needed */
+        }
+
+        .check {
+            display: flex;
+            justify-content: center;
+            align-items: first baseline;
+        }
+
+        input[type="checkbox"]+label {
+            margin-left: 5px;
+            font-size: 14px;
+            color: #007bff;
+        }
+
+        input[type="checkbox"]:checked+label::before {
+            content: '\2713';
+            /* Unicode checkmark character */
+            display: inline-block;
+            font-size: 16px;
+            color: #007bff;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="form-container">
+        <h2>Login</h2>
+        <form action="" onsubmit="return validateForm()">
+            <label for="username">User Name:</label>
+            <input type="text" name="username" id="username" placeholder="Enter your user name">
+            <p class="error-message" id="userError"></p>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter your password">
+            <p class="error-message" id="passError"></p>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm your password">
+            <p class="error-message" id="confirmPassError"></p>
+
+            <div class="check">
+                <input type="checkbox" name="termsCheckbox" id="termsCheckbox">
+                <label for="termsCheckbox">I Understand</label>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        let userName = document.getElementById("username");
+        let password = document.getElementById("password");
+        let confirmPassword = document.getElementById("confirmPassword");
+        let termsCheckbox = document.getElementById("termsCheckbox");
+
+        function validateForm() {
+            // Clear previous error messages
+            document.getElementById("userError").innerHTML = "";
+            document.getElementById("passError").innerHTML = "";
+            document.getElementById("confirmPassError").innerHTML = "";
+
+            // Validate User Name
+            if (userName.value === "") {
+                document.getElementById("userError").innerHTML = "User Name cannot be empty";
+                return false; // Prevent form submission
+            } else if (userName.value.length < 3) {
+                document.getElementById("userError").innerHTML = "User Name should have more than 3 characters";
+                return false; // Prevent form submission
+            }
+
+            // Validate Password
+            if (password.value === "") {
+                document.getElementById("passError").innerHTML = "Password cannot be empty";
+                return false; // Prevent form submission
+            } else if (password.value.length < 6) {
+                document.getElementById("passError").innerHTML = "Password should be at least 6 characters";
+                return false; // Prevent form submission
+            }
+
+            // Validate Confirm Password
+            if (confirmPassword.value === "") {
+                document.getElementById("confirmPassError").innerHTML = "Confirm Password cannot be empty";
+                return false; // Prevent form submission
+            } else if (confirmPassword.value !== password.value) {
+                document.getElementById("confirmPassError").innerHTML = "Passwords do not match";
+                return false; // Prevent form submission
+            }
+
+            // Validate checkbox
+            if (!termsCheckbox.checked) {
+                alert("Please accept the terms and conditions");
+                return false; // Prevent form submission
+            }
+
+            // If all validations pass, allow form submission
+            return true;
+        }
+        
+  
+      
+       
+    </script>
+
+    <!-- Bootstrap JS file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

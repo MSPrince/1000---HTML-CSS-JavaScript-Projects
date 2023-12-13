@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <!-- add favicon link -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_icon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_icon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon_icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        .second_body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 100vh;
+            flex-direction: column;
+            /* Added to align items in a column */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #container {
+            width: 400px;
+            height: 200px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-div {
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .inp {
+            width: 80%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .inp:focus {
+            outline: none;
+            border: 2px solid #3498db;
+        }
+
+        .use_formula {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .use_formula sup {
+            font-size: 12px;
+        }
+
+        h5 {
+            margin-bottom: -50px;
+            background-color: #e74c3c;
+            display: inline;
+            font-size: 15px;
+            padding: 8px;
+            color: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="second_body">
+        <h1>Temperature Converter</h1>
+        <div id="container">
+            <div class="input-div">
+                <label for="cel">Celsius</label><br>
+                <input type="number" value="0" id="cel" class="inp">
+            </div>
+            <div class="input-div">
+                <label for="fah">Fahrenheit</label><br>
+                <input type="number" value="32" id="fah" class="inp">
+            </div>
+        </div>
+
+        <div class="use_formula">
+            <h5>Formula:</h5>
+            (0<sup>&deg;</sup>C * 9/5) + 32 = 32<sup>&deg;</sup>F
+        </div>
+    </div>
+    <script>
+        let Celsius = document.getElementById("cel");
+        let Fahrenheit = document.getElementById("fah");
+
+        Celsius.addEventListener('input', function () {
+            let c = this.value;
+            let f = (c * 9 / 5) + 32;
+            if (!Number.isInteger(f)) {
+                f = f.toFixed(4);
+            }
+            Fahrenheit.value = f;
+        });
+
+        Fahrenheit.addEventListener('input', function () {
+            let f = this.value;
+            let c = (f - 32) * (5 / 9);
+            if (!Number.isInteger(f)) {
+                c = c.toFixed(4);
+            }
+            Celsius.value = c;
+        });
+    </script>
+</body>
+
+</html>

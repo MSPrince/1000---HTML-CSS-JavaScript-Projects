@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+#value {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 10px;
+    color: #007BFF;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+button.Decrease {
+    background-color: #DC3545;
+    color: white;
+}
+
+button.Reset {
+    background-color: #007BFF;
+    color: white;
+}
+
+button.Increase {
+    background-color: #28A745;
+    color: white;
+}
